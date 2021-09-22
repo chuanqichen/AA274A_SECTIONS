@@ -1,0 +1,131 @@
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{hyperref}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{bbm}
+\usepackage{fancyhdr}
+\usepackage{listings}
+\usepackage{cite}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage[margin=1cm]{caption}
+\usepackage{subcaption}
+\usepackage{tcolorbox}
+\usepackage{color}
+\definecolor{editorGray}{rgb}{0.95, 0.95, 0.95}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=blue,
+}
+
+\lstset{%
+    % Basic design
+    backgroundcolor=\color{editorGray},
+    basicstyle={\small\ttfamily},   
+    frame=l,
+    % Line numbers
+    xleftmargin={0.75cm},
+    numbers=left,
+    stepnumber=1,
+    firstnumber=1,
+    numberfirstline=false,
+    }
+\lstset{
+    literate={~} {$\sim$}{1}
+}
+
+\newenvironment{claim}[1]{\par\noindent\underline{Claim:}\space#1}{}
+\newenvironment{claimproof}[1]{\par\noindent\underline{Proof:}\space#1}{\hfill $\blacksquare$}
+
+\oddsidemargin 0in \evensidemargin 0in
+\topmargin -0.5in \headheight 0.25in \headsep 0.25in
+\textwidth 6.5in \textheight 9in
+\parskip 6pt \parindent 0in \footskip 20pt
+
+% set the header up
+\fancyhead{}
+\fancyhead[L]{Stanford Aeronautics \& Astronautics}
+\fancyhead[R]{Fall 2019}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+\renewcommand\headrulewidth{0.4pt}
+\setlength\headheight{15pt}
+
+\usepackage{outlines}
+
+\usepackage{xparse}
+\NewDocumentCommand{\codeword}{v}{%
+\texttt{\textcolor{blue}{#1}}%
+}
+\usepackage{gensymb}
+
+\newcommand{\ssmargin}[2]{{\color{blue}#1}{\marginpar{\color{blue}\raggedright\scriptsize [SS] #2 \par}}}
+
+
+\setlength{\parindent}{0in}
+
+\title{AA 274: Principles of Robotic Autonomy \\ Section 1: OS Setup, Git, Python}
+\date{}
+
+\begin{document}
+
+\maketitle
+\pagestyle{fancy}
+
+Our goals for this section: \begin{enumerate}
+    \item Review OS configuration options for the class.
+    \item Learn how to use Git to pull assignments.
+    \item Start working with Python and Numpy.
+\end{enumerate}
+
+\section{OS Setup}
+For this class, we recommend natively installing Python 2.7 on your local operating system. For the first two homeworks, there will be no ROS component and you should be able to develop and test code locally on your machine. For later homeworks, you will be accessing ROS on a server that we've set up for the class.
+
+\emph{Windows users: }If you use Windows 10, then please look into using the Windows Linux Subsystem (WSL) option that provides native Linux tools directly on Linux. 
+
+A second option is to natively install Linux alongside your normal OS as a dual boot. This may give better performance, especially for graphics rendering. % However, as there can be driver issues and other edge cases that can come up when installing Linux on hardware, we can only officially support the VM in terms of providing help with your setup.
+
+As a final option, you can consider installing a Linux virtual machine (VM) using the instructions found  \href{https://docs.google.com/document/d/1ley_pauriyx0PrH8XYfkIrZwXnL3s-xBQvcUY6RE02I/edit#}{here}. Do note that the performance of a VM won't be as snappy or responsive as a dual boot.
+
+\section{Using Git}
+Git is a source control tool that allows us to share code with you. To obtain code for this section, type the following into your terminal:
+
+ \begin{lstlisting}[escapechar=|]
+ git clone https://github.com/PrinciplesofRobotAutonomy/aa274-sections.git
+\end{lstlisting}
+For the sake of time, if you have trouble installing Git locally, then we suggest that you simply download the zip file for the repository off of the same website. By next week's section, please try and have Git installed.
+
+You will use this folder to store all section material for the remainder of the class. So, to update this repo at the start of each section, type: 
+
+ \begin{lstlisting}
+ git pull
+\end{lstlisting}
+
+
+\section{Python}
+Since our class is composed of students from AA, EE/ME, and CS, we will not assume that you have comprehensive Python knowledge. Therefore, the main purpose of this section is to get your Python coding skills spun up so you can work on the homework. If you know this material already, please help someone who doesn't know it as well.
+
+For this class, we'll be using Python 2.7. To get started, let's start by installing a version of Python 2.7 on your local machine (make sure not to install Python 3.X!) As a further caveat, we also encourage you to setup a \href{https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html}{Conda environment}; Conda allows you to created an ``isolated'' Python environment just for AA 274 without interfering with other versions of Python that you may already have installed.
+
+In order to complete this part of our section, please switch to the scripts included in the code for this section.
+
+%  \begin{lstlisting}
+% ./run.sh python
+% \end{lstlisting}
+
+Once you have had a look through the code, played around with Python a bit, and are aware of the capabilities that Python and its packages offer, complete the following problems:
+{\bf
+\begin{enumerate}
+\item Define a $\sin$ function using NumPy
+\item Find the minimum of the function using SciPy
+\item Integrate the function from $[0, 1]$ using SciPy
+\item Plot the function using Matplotlib from $[0, 2\pi]$
+\end{enumerate}
+}
+Once you have done this, please submit your results \textit{and code} in one writeup file on Gradescope.
+
+\end{document}
