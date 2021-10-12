@@ -3,6 +3,7 @@
 import rospy
 from aa274_s2.msg import MyMessage
 from datetime import datetime
+import random
 
 def publisher():
     pub = rospy.Publisher('my_topic', MyMessage, queue_size=10)
@@ -11,11 +12,11 @@ def publisher():
     while not rospy.is_shutdown():
         my_message = MyMessage()
         now = datetime.now()
-        current_time = new.strftime("%H:%M:%S")
+        current_time = now.strftime("%H:%M:%S")
         my_message.data = "Hello World at : " + current_time
-        my_message.x = random()
-        my_message.y = random()
-        my_message.z = random()
+        my_message.x = random.random()
+        my_message.y = random.random()
+        my_message.z = random.random()
         my_message.status = True 
         pub.publish(my_message)
         rate.sleep()

@@ -5,10 +5,10 @@ from aa274_s2.msg import MyMessage
 
 def callback(data):
     rospy.loginfo(rospy.get_caller_id() + "I heard %s", data.data)
-    rospy.loginfo(rospy.get_caller_id() + " x = ", data.x)
-    rospy.loginfo(rospy.get_caller_id() + " y = ", data.y)
-    rospy.loginfo(rospy.get_caller_id() + " z = ", data.z)
-    rospy.loginfo(rospy.get_caller_id() + " status = ", data.status)
+    rospy.loginfo(rospy.get_caller_id() + " x = %.3f", data.x)
+    rospy.loginfo(rospy.get_caller_id() + " y = %.3f", data.y)
+    rospy.loginfo(rospy.get_caller_id() + " z = %.3f", data.z)
+    rospy.loginfo(rospy.get_caller_id() + " status = %r", data.status)
 
 def subscriber():
     rospy.init_node('my_subscriber', anonymous=True)
